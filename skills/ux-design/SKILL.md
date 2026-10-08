@@ -107,4 +107,5 @@ Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills
 - https://github.com/elayadesign/redesign-skill — copy bans, one-accent, anti–3-column features
 - https://github.com/kylezantos/responsive-craft — viewport planning
 - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill — craft defaults
+- https://github.com/Leonxlnx/taste-skill — Design Read + variance/motion/density dials (landing depth)
 - Local Design Motion refs — dashboard/landing five maps; Linear five decisions
