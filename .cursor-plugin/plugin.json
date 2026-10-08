@@ -1,0 +1,20 @@
+{
+  "name": "ui-ux-agent-skills",
+  "version": "1.0.0",
+  "description": "De-AI UI/UX agent skills: design, audit, review, and restyle dashboards, product UI, and landing pages.",
+  "author": {
+    "name": "Faizal Malek"
+  },
+  "homepage": "https://github.com/Faizal-Malek/ui-ux-agent-skills",
+  "repository": "https://github.com/Faizal-Malek/ui-ux-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "ui",
+    "ux",
+    "design",
+    "de-ai",
+    "frontend",
+    "skills",
+    "cursor"
+  ]
+}
