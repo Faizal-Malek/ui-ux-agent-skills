@@ -2,13 +2,16 @@
 name: restyle
 description: >-
   Kill the AI look and restyle an existing dashboard, product UI, or landing
-  page. Use when UI looks generic/AI-made (purple glow, grid atmosphere, clone
-  KPIs, 3 feature cards, vague copy) and needs concrete visual/structural fixes.
+  page across mobile, tablet, laptop, and desktop. Use when UI looks
+  generic/AI-made (purple glow, grid atmosphere, clone KPIs, 3 feature cards,
+  vague copy) and needs concrete visual/structural fixes with a change review.
 ---
 
 # Restyle — kill the AI look
 
-Restyle an existing screen to [UI/UX Standards](../../ui-ux-standards.md)—same product job, professional execution. “Five tells, gone.”
+Restyle an existing screen to [UI/UX Standards](../../ui-ux-standards.md)—same product job, professional execution. “Five tells, gone.” Always verify [four viewports](../../references/responsive-breakpoints.md).
+
+For vague “just make it better” asks that also need craft/responsive fixes, prefer [ux-improve](../ux-improve/SKILL.md). Use **restyle** when the ask is explicitly de-AI / visual rewrite.
 
 ## When to use
 
@@ -20,7 +23,7 @@ Not for greenfield ([ux-design](../ux-design/SKILL.md)) or PR-only comments ([ux
 
 ## Modes
 
-- **Full restyle** (default): audit → direction → edit → re-check.
+- **Full restyle** (default): audit → direction → edit → re-check → change review.
 - **Surgical**: inside a design system or small component—swap tells, keep structure/tokens.
 
 Borrowed from [`avoid-ai-design`](https://github.com/funboy322/avoid-ai-design) rewrite calibration and [`redesign-skill`](https://github.com/elayadesign/redesign-skill) diagnose-then-fix.
@@ -36,6 +39,7 @@ Borrowed from [`avoid-ai-design`](https://github.com/funboy322/avoid-ai-design) 
 7. Landing: outcome copy, product-first proof, solid primary CTA, quiet secondary link; kill glow/grid/3-cards.
 8. Preserve functionality, a11y, and meaning of copy (sharpen generics; don’t invent claims).
 9. If a design system exists, restyle **into** it.
+10. Hierarchy must hold at **375 / 768 / 1024 / 1440**.
 
 ## Fix maps
 
@@ -70,17 +74,20 @@ Adapted from [`redesign-skill`](https://github.com/elayadesign/redesign-skill):
 4. Data & copy honesty  
 5. Borders, density, alignment (product)  
 6. States (hover/focus/empty/error)  
-7. Motion restraint  
+7. Responsive reflow (four viewports)  
+8. Motion restraint  
 
 ## Process
 
-1. Snapshot tells (or run audit) by surface.
+1. Snapshot tells (or run audit) by surface—**don’t wait for a pixel-by-pixel user brief**.
 2. Lock tokens (bg/surface/border/text/muted/accent) + type if free.
 3. Restructure hierarchy; strip effects; fix content.
 4. Product pass: Linear five.
 5. Landing pass: hero budget + brand test.
-6. Re-audit; success = tells gone **and** coherent subject-grounded direction (not a token-swap)—from avoid-ai-design success tests.
-7. Compare spirit to after refs: [dashboard after](../../media/de-ai-ui-after.jpg), [landing after](../../media/de-ai-landing-after-lumen.jpg)—principles, not pixel clone.
+6. Responsive pass: [responsive-breakpoints.md](../../references/responsive-breakpoints.md).
+7. Re-audit; success = tells gone **and** coherent subject-grounded direction.
+8. Compare spirit to after refs: [dashboard after](../../media/de-ai-ui-after.jpg), [landing after](../../media/de-ai-landing-after-lumen.jpg)—principles, not pixel clone.
+9. Emit **change review** (what / why / viewports).
 
 ## Checklist before done
 
@@ -91,7 +98,7 @@ Adapted from [`redesign-skill`](https://github.com/elayadesign/redesign-skill):
 - [ ] Clear primary focus; quiet chrome
 - [ ] Varied credible data; specific copy
 - [ ] Design system preserved when present
-- [ ] Responsive hierarchy holds
+- [ ] Passes at 375 / 768 / 1024 / 1440
 
 ## Output expectations
 
@@ -99,7 +106,8 @@ Adapted from [`redesign-skill`](https://github.com/elayadesign/redesign-skill):
 2. **Token diff**
 3. **Structural changes**
 4. **Code changes** (or patch plan)
-5. **Re-audit verdict** + residual risks
+5. **Change review table** — Change · Why · Viewports
+6. **Re-audit verdict** + residual risks
 
 ## What NOT to do
 
@@ -108,11 +116,13 @@ Adapted from [`redesign-skill`](https://github.com/elayadesign/redesign-skill):
 - Don’t pixel-clone reference mint/teal demos unless asked—match principles.
 - Don’t expand into unrelated product features.
 - Don’t break working behavior for aesthetics.
+- Don’t skip tablet/laptop checks.
 
 ## Sources adapted
 
 - https://github.com/funboy322/avoid-ai-design — rewrite workflow, anti–second-order swap, success tests
 - https://github.com/elayadesign/redesign-skill — diagnose-then-fix, fix priority, copy/layout bans
 - https://github.com/marten-osieka/de-ai-ui — prevent-then-self-audit
-- https://github.com/AntonioSpagnol/UI-Deslopify-Skill — restyle-as-replace-slop framing (structure only; we don’t require 21st.dev)
+- https://github.com/AntonioSpagnol/UI-Deslopify-Skill — restyle-as-replace-slop framing
+- https://github.com/kylezantos/responsive-craft — viewport discipline
 - Local Design Motion refs — dashboard/landing after targets; Linear expensive decisions

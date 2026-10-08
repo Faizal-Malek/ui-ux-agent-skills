@@ -2,7 +2,7 @@
 
 Durable design rules for coding agents shipping **dashboards**, **product UI**, and **landing/marketing** surfaces. Goal: professional interfaces—not generic AI templates.
 
-**Skills:** [ux-design](skills/ux-design/SKILL.md) · [ux-audit](skills/ux-audit/SKILL.md) · [ux-review](skills/ux-review/SKILL.md) · [restyle](skills/restyle/SKILL.md) · [index](skills-index.md)
+**Skills:** [ux-improve](skills/ux-improve/SKILL.md) · [ux-design](skills/ux-design/SKILL.md) · [ux-audit](skills/ux-audit/SKILL.md) · [ux-review](skills/ux-review/SKILL.md) · [restyle](skills/restyle/SKILL.md) · [index](skills-index.md)
 
 ---
 
@@ -99,6 +99,31 @@ Also ban when the brief didn’t ask for them (see Sources): cream + terracotta 
 
 ---
 
+## D. Responsive — four viewports (always)
+
+Unless the surface is explicitly single-viewport, design and verify at:
+
+| Viewport | Width |
+| --- | --- |
+| Mobile | **375px** |
+| Tablet | **768px** |
+| Laptop | **1024px** |
+| Desktop | **1440px** |
+
+Full protocol + AI failure patterns: [references/responsive-breakpoints.md](references/responsive-breakpoints.md).
+
+**Minimums:** no horizontal scroll; mobile nav (not a shrunk desktop nav); `svh`/`dvh` over bare `100vh`; touch-reachable primary actions; `min-width: 0` on shrinking flex children; tables/tabs that don’t blow the layout.
+
+---
+
+## E. Craft QA (beyond de-AI)
+
+De-AI clears the “template look.” Craft QA clears use/trust issues. Condensed checklist: [references/craft-qa.md](references/craft-qa.md).
+
+Priority: accessibility → touch/interaction → responsive → forms/feedback → type/color → navigation → motion → charts → performance UX.
+
+---
+
 ## What “professional” looks like
 
 - **Decision, not decoration** — color, cards, charts, pills exist for a task.
@@ -118,9 +143,10 @@ Also ban when the brief didn’t ask for them (see Sources): cream + terracotta 
 - [ ] No purple/indigo AI default; no glass/glow/grid decoration
 - [ ] No second-order tasteful-AI cluster unless briefed
 - [ ] Copy is specific; sample data is varied
-- [ ] Hierarchy holds on mobile and desktop
+- [ ] Hierarchy holds at **375 / 768 / 1024 / 1440**
+- [ ] Craft QA P0s cleared (contrast, focus, touch, forms states) — see [craft-qa.md](references/craft-qa.md)
 
-Fail → [ux-audit](skills/ux-audit/SKILL.md) / [restyle](skills/restyle/SKILL.md).
+Fail → [ux-improve](skills/ux-improve/SKILL.md) (fix) · [ux-audit](skills/ux-audit/SKILL.md) (detect) · [restyle](skills/restyle/SKILL.md) (de-AI rewrite).
 
 ---
 
@@ -137,6 +163,9 @@ Patterns integrated into this standards doc and the four skills—not copied who
 | `de-ai-ui` | https://github.com/marten-osieka/de-ai-ui | Tells catalog mindset; self-audit report after generation; prevent 3-card grids / purple gradients / workflow clichés |
 | `ui-ux-kit` | https://github.com/arham777/ui-ux-kit | Route by surface (landing/dashboard/product); countable anti-slop gate; persist a design-system memo across pages |
 | `impeccable` | https://github.com/pbakaus/impeccable | Command-split critique/audit/polish; broad surface coverage for when to invoke design skills |
+| `ui-ux-pro-max` | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | Craft priority ladder (a11y→touch→responsive→forms…); we keep checklists, not the Python search DB |
+| `responsive-craft` | https://github.com/kylezantos/responsive-craft | Four-width discipline + AI responsive failure patterns |
+| `ui-design` (mblode) | https://github.com/mblode/agent-skills | Autonomous audit→fix→ship-verdict posture |
 | Design Motion references | Local media (DE-AI · 01/02, Linear expensive) | Concrete five-tell maps and Linear’s five decisions |
 
 ---
@@ -145,7 +174,8 @@ Patterns integrated into this standards doc and the four skills—not copied who
 
 | Skill | Use when |
 | --- | --- |
+| [ux-improve](skills/ux-improve/SKILL.md) | **Default:** fix existing UI with low prompting; explain changes across 4 viewports |
 | [ux-design](skills/ux-design/SKILL.md) | Design a screen from a brief |
-| [ux-audit](skills/ux-audit/SKILL.md) | Find every AI tell |
+| [ux-audit](skills/ux-audit/SKILL.md) | Detect-only inventory (AI tells + craft + responsive) |
 | [ux-review](skills/ux-review/SKILL.md) | Review UI in a PR/diff |
 | [restyle](skills/restyle/SKILL.md) | Kill the AI look / restyle an existing screen |

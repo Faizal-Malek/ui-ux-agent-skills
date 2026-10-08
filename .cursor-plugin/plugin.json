@@ -1,7 +1,7 @@
 {
   "name": "ui-ux-agent-skills",
-  "version": "1.0.0",
-  "description": "De-AI UI/UX agent skills: design, audit, review, and restyle dashboards, product UI, and landing pages.",
+  "version": "1.1.0",
+  "description": "De-AI UI/UX agent skills: improve, design, audit, review, restyle \u2014 with four-viewport + craft QA.",
   "author": {
     "name": "Faizal Malek"
   },

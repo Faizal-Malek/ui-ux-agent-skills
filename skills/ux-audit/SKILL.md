@@ -1,40 +1,44 @@
 ---
 name: ux-audit
 description: >-
-  Find every AI tell in an existing UI (dashboard, product, or landing). Use for
-  “does this look AI-made?”, pre-restyle inventories, and design QA—maps findings
-  to dashboard/landing five-tell lists and Linear expensive-UI decisions.
+  Find every AI tell and craft/responsive issue in an existing UI (dashboard,
+  product, or landing) across mobile 375, tablet 768, laptop 1024, and desktop
+  1440. Use for “does this look AI-made?”, design QA, and pre-fix inventories—
+  detect-only unless asked to fix (then hand off to ux-improve or restyle).
 ---
 
-# UX Audit — find every AI tell
+# UX Audit — find every AI tell (+ craft + responsive)
 
-Scan an existing screen (code, screenshot, or live UI) against [UI/UX Standards](../../ui-ux-standards.md). List every violation with severity, evidence, and a one-line fix direction.
+Scan an existing screen (code, screenshot, or live UI) against [UI/UX Standards](../../ui-ux-standards.md), [craft QA](../../references/craft-qa.md), and [responsive breakpoints](../../references/responsive-breakpoints.md). List every violation with severity, evidence, and a one-line fix direction.
 
 ## When to use
 
-- “Does this look AI-made?” / design QA
-- Pre-restyle inventory
+- “Does this look AI-made?” / design QA / “what’s wrong with this UI?”
+- Pre-restyle / pre-improve inventory
 - Whole-screen review (not PR-scoped—use [ux-review](../ux-review/SKILL.md) for diffs)
 
-Detect-only by default (no edits). Hand off to [restyle](../restyle/SKILL.md) when the user wants fixes. Mode split borrowed from [`avoid-ai-design`](https://github.com/funboy322/avoid-ai-design) (`detect` vs `rewrite`).
+**Detect-only by default** (no edits). When the user wants fixes, hand off to [ux-improve](../ux-improve/SKILL.md) (default) or [restyle](../restyle/SKILL.md) (de-AI rewrite focus). Mode split borrowed from [`avoid-ai-design`](https://github.com/funboy322/avoid-ai-design) (`detect` vs `rewrite`).
 
 ## Hard rules
 
 1. Map findings to **explicit tells** (dashboard §A, landing §C, Linear §B, shared bans)—no vibe-only scores.
-2. Cite **evidence** (file/class/region). Tag confidence: **code-certain** | **rendered** | **inferred** (from avoid-ai-design).
-3. Severity: **P0** layperson spots AI · **P1** designer spots template · **P2** craft gaps.
-4. Run a **silhouette/sameness test** when a screenshot exists: could this be any other SaaS page?
-5. Flag **second-order** clusters (cream+terracotta, acid-green-on-black, etc.), not only purple.
-6. Cover copy clichés (“supercharge,” “streamline,” “elevate”) and 3-equal feature cards.
-7. If a design system forces a pattern, note it—still flag optional AI tells.
+2. Also run **craft QA** and **four-viewport** checks—not only purple/glow.
+3. Cite **evidence** (file/class/region). Tag confidence: **code-certain** | **rendered** | **inferred**.
+4. Severity: **P0** layperson spots AI or blocked use · **P1** designer/template or clear craft miss · **P2** polish.
+5. Run a **silhouette/sameness test** when a screenshot exists: could this be any other SaaS page?
+6. Flag **second-order** clusters (cream+terracotta, acid-green-on-black, etc.), not only purple.
+7. Cover copy clichés and 3-equal feature cards.
+8. If a design system forces a pattern, note it—still flag optional AI tells.
 
 ## Process
 
 1. Identify surface: `landing` | `dashboard` | `product`.
-2. Walk the matching tell tables below + shared bans.
-3. For product/list UIs, score Linear’s five decisions.
-4. Rank P0→P2; group duplicates.
-5. Emit the report format.
+2. Walk tell tables + shared bans.
+3. Walk craft QA priorities (a11y → touch → responsive → forms…).
+4. Score Linear’s five decisions for product/list UIs.
+5. Check **375 / 768 / 1024 / 1440** (or note missing evidence).
+6. Rank P0→P2; group duplicates.
+7. Emit the report format.
 
 ## Checklists
 
@@ -65,10 +69,20 @@ Detect-only by default (no edits). Hand off to [restyle](../restyle/SKILL.md) wh
 | Keyboard | No shortcuts/focus model on a power tool |
 | Alignment | Columns/baselines drift |
 
-### Shared / second-order
+### Responsive (all surfaces)
+| Width | Fail if… |
+| --- | --- |
+| 375 | Horizontal scroll; no mobile nav; hover-only primary; tiny tap targets |
+| 768 | Awkward half-collapsed grids; unusable side panels |
+| 1024 | App shell broken; competing columns without hierarchy |
+| 1440 | Content stretches unreadably; empty “luxury” padding theater |
+
+Scan AI responsive failures in [responsive-breakpoints.md](../../references/responsive-breakpoints.md).
+
+### Shared / second-order / craft
 - Inter/Roboto/Arial as unearned default; ALL-CAPS eyebrows; decorative `01/02/03`
 - Cream+terracotta or acid-green-on-black as unearned “tasteful” swap
-- Low contrast; missing focus/empty/error states (note as P1/P2 craft)
+- Low contrast; missing focus/empty/error states; placeholder-only labels
 
 ## Output expectations
 
@@ -80,27 +94,32 @@ Pass | Fail — <one line>
 Surface: landing | dashboard | product
 
 ## Findings
-| Sev | Tell / decision | Evidence | Confidence | Fix direction |
+| Sev | Tell / craft / viewport | Evidence | Confidence | Fix direction |
 | --- | --- | --- | --- | --- |
 | P0 | Landing #1 | ... | rendered | ... |
+| P0 | Responsive 375 | ... | code-certain | ... |
 
 ## Counts
 P0: N · P1: N · P2: N
 
+## Viewport coverage
+375 | 768 | 1024 | 1440 — checked / inferred / unknown
+
 ## Next step
-Recommend `restyle` | targeted fixes | no action
+Recommend `ux-improve` | `restyle` | targeted fixes | no action
 ```
 
 ## What NOT to do
 
-- Don’t restyle unless asked.
-- Don’t ignore landing or Linear checks when the surface matches.
-- Don’t accuse authorship—“default left untouched,” not “a model made this” ([avoid-ai-design](https://github.com/funboy322/avoid-ai-design)).
+- Don’t restyle unless asked (use `ux-improve` / `restyle`).
+- Don’t ignore landing, Linear, craft, or viewport checks when they apply.
+- Don’t accuse authorship—“default left untouched,” not “a model made this”.
 
 ## Sources adapted
 
 - https://github.com/funboy322/avoid-ai-design — detect mode, severity, confidence tags, silhouette test
 - https://github.com/narenkatakam/ux-audit — guide/review split, task-first / hierarchy principles
 - https://github.com/marten-osieka/de-ai-ui — tells-catalog + self-audit report mindset
-- https://github.com/elayadesign/redesign-skill — copy/layout tell inventory
+- https://github.com/nextlevelbuilder/ui-ux-pro-max-skill — craft priority categories
+- https://github.com/kylezantos/responsive-craft — four-width + failure patterns
 - Local Design Motion refs — five-tell maps + Linear decisions

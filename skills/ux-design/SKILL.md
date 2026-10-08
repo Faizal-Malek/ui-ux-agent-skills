@@ -2,14 +2,15 @@
 name: ux-design
 description: >-
   Design a screen from a brief using professional, non-AI-looking UI standards
-  (dashboards, product UI, landing pages). Use when asked to design, layout, or
+  (dashboards, product UI, landing pages) with explicit mobile 375, tablet 768,
+  laptop 1024, and desktop 1440 behavior. Use when asked to design, layout, or
   build a new screen from requirements—avoid purple glow, 3-card features,
   clone KPIs, and generic SaaS templates.
 ---
 
 # UX Design — design a screen from a brief
 
-Produce implementable UI that passes [UI/UX Standards](../../ui-ux-standards.md). Prefer hierarchy and subject-grounded decisions over templates.
+Produce implementable UI that passes [UI/UX Standards](../../ui-ux-standards.md). Prefer hierarchy and subject-grounded decisions over templates. Plan all four viewports up front ([responsive-breakpoints.md](../../references/responsive-breakpoints.md)).
 
 ## When to use
 
@@ -17,7 +18,7 @@ Produce implementable UI that passes [UI/UX Standards](../../ui-ux-standards.md)
 - Dashboard, **product/list UI**, or **landing/marketing**
 - Structural design (IA + layout + tokens)—not only a color tweak
 
-Not for: PR-only critique ([ux-review](../ux-review/SKILL.md)), tell-hunting without design ([ux-audit](../ux-audit/SKILL.md)), or “make this less AI” on existing UI ([restyle](../restyle/SKILL.md)).
+Not for: PR-only critique ([ux-review](../ux-review/SKILL.md)), tell-hunting without design ([ux-audit](../ux-audit/SKILL.md)), “make this less AI” on existing UI ([restyle](../restyle/SKILL.md) / [ux-improve](../ux-improve/SKILL.md)).
 
 ## Process (plan → review → build)
 
@@ -29,9 +30,11 @@ Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills
    - Color: 4–6 named hex roles (include one `--accent`)
    - Type: 1–2 families with roles (not Inter/Roboto/Arial/system by default)
    - Layout: one-sentence concept + ASCII wireframe; alignment notes
+   - **Responsive table** for shell/nav + primary + secondary at 375 / 768 / 1024 / 1440
    - Signature: one memorable element; everything else quiet
-4. **Self-review the plan** — would you produce this for *any* similar brief? If yes, revise. Reject first-order *and* second-order AI clusters (cream+terracotta, acid-green-on-black, SaaS-card kit, etc.).
-5. **Build** to the plan; critique once (screenshots if available).
+   - Craft defaults: focus rings, ≥16px body, touch targets, empty/loading/error
+4. **Self-review the plan** — would you produce this for *any* similar brief? If yes, revise. Reject first-order *and* second-order AI clusters.
+5. **Build** to the plan; critique once (screenshots if available) at four widths.
 
 ## Hard rules by surface
 
@@ -42,19 +45,23 @@ Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills
 - Copy is specific outcomes, not “supercharge / streamline / seamlessly.”
 - Cards only when interaction or understanding needs a container.
 - Preserve an existing design system when present.
+- Mobile-first; no horizontal scroll; no hover-only primary actions.
 
 ### Dashboard
 - Apply **Dashboard five fixes** (standards §A): hero metric, varied deltas, solid surfaces, quiet chrome, chart controls.
 - Prefer hierarchy over four equal KPI cards.
+- KPI grids: 1 col → 2 (tablet) → purposeful denser layout (laptop+), not four equal cards by default.
 
 ### Product / list UI (Linear bar)
 - Apply **Linear five decisions** (standards §B): **density, borders, one color, keyboard, alignment**.
 - Compact rows; 1px separators; muted status colors; show shortcuts where power users live; strict column alignment.
+- Tables: horizontal scroll or card rows on mobile—never crushed columns.
 
 ### Landing
 - Apply **Landing five fixes** (standards §C) + hero budget: brand-first, full-bleed/product visual, one CTA group, no feature-card opening, no overlays.
 - Prefer real product UI in the hero over Fast/Secure/Easy cards.
 - Primary CTA = solid accent; secondary = text link.
+- Hero must still read as one composition at 375 (stack), not a shrunk desktop collage.
 
 ## Checklist before done
 
@@ -64,15 +71,16 @@ Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills
 - [ ] Product UI: Linear five decisions considered
 - [ ] Tokens + type intentional
 - [ ] Sample content specific and varied
-- [ ] Mobile + desktop hierarchy holds
+- [ ] Responsive table for 375 / 768 / 1024 / 1440
+- [ ] Craft defaults (focus, contrast, touch, states) considered
 
 ## Output expectations
 
 1. **Job** (1 sentence) + **surface**
-2. **Plan** (tokens, type, layout, signature) + what you changed in the default review
+2. **Plan** (tokens, type, layout, signature, **viewport table**) + what you changed in the default review
 3. **Spec or implemented UI**
 4. **Sample content**
-5. **Standards pass** against the relevant five tells / Linear decisions
+5. **Standards pass** against the relevant five tells / Linear decisions / craft QA
 
 ## What NOT to do
 
@@ -80,10 +88,13 @@ Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills
 - Don’t use glow grids, glass search, or gradient CTAs as defaults.
 - Don’t write a design essay—ship a buildable layout.
 - Don’t invent a parallel theme when a design system exists.
+- Don’t design only “mobile + desktop” and skip tablet/laptop.
 
 ## Sources adapted
 
 - https://github.com/anthropics/skills — `frontend-design` (plan/review loop, clusters, restraint)
 - https://github.com/arham777/ui-ux-kit — surface routing
 - https://github.com/elayadesign/redesign-skill — copy bans, one-accent, anti–3-column features
+- https://github.com/kylezantos/responsive-craft — viewport planning
+- https://github.com/nextlevelbuilder/ui-ux-pro-max-skill — craft defaults
 - Local Design Motion refs — dashboard/landing five maps; Linear five decisions
