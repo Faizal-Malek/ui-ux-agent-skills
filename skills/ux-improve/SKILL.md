@@ -37,7 +37,11 @@ Prefer [ux-audit](../ux-audit/SKILL.md) for detect-only. Prefer [ux-design](../u
 
 - Surface: `landing` | `dashboard` | `product`
 - Job in one sentence (from copy/routes/components)
+- **Design Read** (one line): audience + vibe + system/aesthetic — then proceed without a questionnaire
+- Dials (infer, don’t ask): variance / motion / density fit for this surface
 - Stack cues from the repo (CSS/Tailwind/etc.)
+
+If this is a marketing landing/portfolio and Taste Skill’s `design-taste-frontend` is installed, you may lean on it for art-direction depth—still apply our de-AI five maps + four-viewport gate.
 
 ### 2. Scan (no user Q&A unless blocked)
 

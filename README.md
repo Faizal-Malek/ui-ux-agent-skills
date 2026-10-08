@@ -36,6 +36,7 @@ Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](sk
 | [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Huge searchable style/palette/UX DB + Python search | We absorbed the **craft priority ladder** + responsive checks into lean markdown—not the full CSV/Python runtime |
 | [responsive-craft](https://github.com/kylezantos/responsive-craft) | Breakpoint engineering + AI CSS failure patterns | Four-width protocol + failure list in `references/` |
 | [mblode/agent-skills ui-design](https://github.com/mblode/agent-skills) | Autonomous audit→fix→ship verdict | Inspired **`ux-improve`** (low-prompt fix + change review) |
+| [taste-skill](https://github.com/Leonxlnx/taste-skill) ([site](https://www.tasteskill.dev)) | Best-in-class **landing/portfolio** anti-slop; Design Read + dials; redesign audit | **Complementary** — use for marketing art direction; we own dashboards/product + 4-viewport improve |
 | **This repo** | De-AI five-tell maps + Linear product bar + autonomous improve | Best when you want anti-slop **and** “just fix it” with why |
 
 ## Repo layout

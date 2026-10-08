@@ -22,19 +22,29 @@ Not for: PR-only critique ([ux-review](../ux-review/SKILL.md)), tell-hunting wit
 
 ## Process (plan → review → build)
 
-Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md):
+Borrowed from Anthropic [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) + brief-read / dials from [`taste-skill`](https://github.com/Leonxlnx/taste-skill):
 
-1. **Ground in the subject** — product, audience, primary job (one sentence).
-2. **Route the surface** — `landing` | `dashboard` | `product` (list/tool). Borrowed from [`ui-ux-kit`](https://github.com/arham777/ui-ux-kit) routing.
-3. **Write a compact plan** before code:
+1. **Design Read (one line, before code)** —  
+   `Reading this as: <surface> for <audience>, with a <vibe> language, leaning toward <system or aesthetic>.`  
+   Infer from the brief; ask **at most one** clarifying question only if the read truly forks. Do not dump a questionnaire.
+2. **Route the surface** — `landing` | `dashboard` | `product` (list/tool).
+3. **Set three dials** (defaults unless the read overrides):
+   | Dial | Default | Notes |
+   | --- | --- | --- |
+   | `DESIGN_VARIANCE` | 5–7 | 1 = symmetry · 10 = artsy chaos. Landings lean higher; product/dashboards lower |
+   | `MOTION_INTENSITY` | 3–6 | 1 = static · 10 = cinematic. Prefer 2–3 intentional motions |
+   | `VISUAL_DENSITY` | landing 3–4 · product/dash 7–9 | 1 = gallery · 10 = cockpit |
+4. **Write a compact plan** before code:
    - Color: 4–6 named hex roles (include one `--accent`)
    - Type: 1–2 families with roles (not Inter/Roboto/Arial/system by default)
    - Layout: one-sentence concept + ASCII wireframe; alignment notes
    - **Responsive table** for shell/nav + primary + secondary at 375 / 768 / 1024 / 1440
    - Signature: one memorable element; everything else quiet
    - Craft defaults: focus rings, ≥16px body, touch targets, empty/loading/error
-4. **Self-review the plan** — would you produce this for *any* similar brief? If yes, revise. Reject first-order *and* second-order AI clusters.
-5. **Build** to the plan; critique once (screenshots if available) at four widths.
+5. **Self-review the plan** — would you produce this for *any* similar brief? If yes, revise. Reject first-order *and* second-order AI clusters (including taste-skill’s cream+brass “premium consumer” default when unearned).
+6. **Build** to the plan; critique once (screenshots if available) at four widths.
+
+**Companion:** for marketing/portfolio landings with heavy art direction, also invoke installed `design-taste-frontend` (Taste Skill). Keep **this** skill for dashboards/product + de-AI standards.
 
 ## Hard rules by surface
 

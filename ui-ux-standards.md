@@ -166,6 +166,7 @@ Patterns integrated into this standards doc and the four skills—not copied who
 | `ui-ux-pro-max` | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | Craft priority ladder (a11y→touch→responsive→forms…); we keep checklists, not the Python search DB |
 | `responsive-craft` | https://github.com/kylezantos/responsive-craft | Four-width discipline + AI responsive failure patterns |
 | `ui-design` (mblode) | https://github.com/mblode/agent-skills | Autonomous audit→fix→ship-verdict posture |
+| `taste-skill` | https://github.com/Leonxlnx/taste-skill · https://www.tasteskill.dev | Design Read + VARIANCE/MOTION/DENSITY dials; landing/portfolio anti-slop depth; install alongside ours |
 | Design Motion references | Local media (DE-AI · 01/02, Linear expensive) | Concrete five-tell maps and Linear’s five decisions |
 
 ---
