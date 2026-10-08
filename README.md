@@ -46,13 +46,14 @@ Standards live in [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index
 From this repo root, copy skills into your project:
 
 ```bash
-mkdir -p .agents/skills .cursor/skills
-cp -R skills/ux-design skills/ux-audit skills/ux-review skills/restyle .agents/skills/
-cp -R skills/ux-design skills/ux-audit skills/ux-review skills/restyle .cursor/skills/
-# optional: keep the standards next to the skills for relative links
-cp ui-ux-standards.md skills-index.md .
-mkdir -p media && cp media/*.jpg media/ 2>/dev/null || cp -R media .
+REPO=~/ui-ux-agent-skills   # or path to this clone
+mkdir -p .agents/skills .cursor/skills media
+cp -R "$REPO"/skills/ux-design "$REPO"/skills/ux-audit "$REPO"/skills/ux-review "$REPO"/skills/restyle .agents/skills/
+cp -R "$REPO"/skills/ux-design "$REPO"/skills/ux-audit "$REPO"/skills/ux-review "$REPO"/skills/restyle .cursor/skills/
+cp "$REPO"/ui-ux-standards.md "$REPO"/skills-index.md .
+cp "$REPO"/media/*.jpg media/
 ```
+
 
 Or clone once and symlink:
 
