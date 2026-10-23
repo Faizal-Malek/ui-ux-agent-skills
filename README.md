@@ -2,7 +2,7 @@
 
 Installable agent skills plus durable standards so coding agents stop shipping AI-looking dashboards, product UI, and landing pages—and improve craft + responsive layout **without** a long pixel brief.
 
-**Owner:** [Faizal-Malek](https://github.com/Faizal-Malek) · **License:** MIT
+**Owner:** [Faizal-Malek](https://github.com/Faizal-Malek) · **License:** MIT · **Version:** 1.3.0
 
 ## Skills
 
@@ -13,6 +13,7 @@ Installable agent skills plus durable standards so coding agents stop shipping A
 | [ux-audit](skills/ux-audit/SKILL.md) | `/ux-audit` | Detect-only inventory (AI tells + craft + responsive) |
 | [ux-review](skills/ux-review/SKILL.md) | `/ux-review` | Review UI in a PR/diff |
 | [restyle](skills/restyle/SKILL.md) | `/restyle` | Kill the AI look / restyle an existing screen |
+| [color-scheme](skills/color-scheme/SKILL.md) | `/color-scheme` | Palette roles & balance (60-30-10, one accent, imagery harmony) |
 
 Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](skills-index.md). Refs: [references/](references/). Media: [media/](media/).
 
@@ -20,8 +21,9 @@ Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](sk
 
 1. **Vague “fix this UI”** → `ux-improve`
 2. **Greenfield** → `ux-design`
-3. **Detect-only** → `ux-audit` then `ux-improve` / `restyle`
-4. **PR gate** → `ux-review`
+3. **Palette / “make it pop” only** → `color-scheme`
+4. **Detect-only** → `ux-audit` then `ux-improve` / `restyle`
+5. **PR gate** → `ux-review`
 
 ### Four viewports (every improve/design/restyle)
 
@@ -36,8 +38,8 @@ Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](sk
 | [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Huge searchable style/palette/UX DB + Python search | We absorbed the **craft priority ladder** + responsive checks into lean markdown—not the full CSV/Python runtime |
 | [responsive-craft](https://github.com/kylezantos/responsive-craft) | Breakpoint engineering + AI CSS failure patterns | Four-width protocol + failure list in `references/` |
 | [mblode/agent-skills ui-design](https://github.com/mblode/agent-skills) | Autonomous audit→fix→ship verdict | Inspired **`ux-improve`** (low-prompt fix + change review) |
-| [taste-skill](https://github.com/Leonxlnx/taste-skill) ([site](https://www.tasteskill.dev)) | Best-in-class **landing/portfolio** anti-slop; Design Read + dials; redesign audit | **Complementary** — use for marketing art direction; we own dashboards/product + 4-viewport improve |
-| **This repo** | De-AI five-tell maps + Linear product bar + autonomous improve | Best when you want anti-slop **and** “just fix it” with why |
+| [taste-skill](https://github.com/Leonxlnx/taste-skill) ([site](https://www.tasteskill.dev)) | Best-in-class **landing/portfolio** anti-slop; Design Read + dials; redesign audit | **Complementary** — use for marketing art direction; we own dashboards/product + 4-viewport improve; **`color-scheme`** owns roles/balance only |
+| **This repo** | De-AI five-tell maps + Linear product bar + autonomous improve + color roles | Best when you want anti-slop **and** “just fix it” with why |
 
 ## Repo layout
 
@@ -50,11 +52,14 @@ Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](sk
 │   ├── ux-design/SKILL.md
 │   ├── ux-audit/SKILL.md
 │   ├── ux-review/SKILL.md
-│   └── restyle/SKILL.md
+│   ├── restyle/SKILL.md
+│   └── color-scheme/SKILL.md
 ├── references/
 │   ├── responsive-breakpoints.md
-│   └── craft-qa.md
+│   ├── craft-qa.md
+│   └── color-balance.md
 ├── media/
+│   └── color-scheme/   # before/after palette teaching pairs
 ├── ui-ux-standards.md
 ├── skills-index.md
 ├── LICENSE
@@ -67,14 +72,14 @@ Standards: [ui-ux-standards.md](ui-ux-standards.md). Index: [skills-index.md](sk
 
 ```bash
 REPO=~/ui-ux-agent-skills   # or path to this clone
-mkdir -p .agents/skills .cursor/skills media
-for s in ux-improve ux-design ux-audit ux-review restyle; do
+mkdir -p .agents/skills .cursor/skills media references
+for s in ux-improve ux-design ux-audit ux-review restyle color-scheme; do
   cp -R "$REPO/skills/$s" .agents/skills/
   cp -R "$REPO/skills/$s" .cursor/skills/
 done
 cp "$REPO/ui-ux-standards.md" "$REPO/skills-index.md" .
-mkdir -p references && cp "$REPO"/references/*.md references/
-cp "$REPO"/media/*.jpg media/
+cp "$REPO"/references/*.md references/
+cp -R "$REPO"/media/. media/
 ```
 
 Or symlink from a single clone:
@@ -82,7 +87,7 @@ Or symlink from a single clone:
 ```bash
 git clone git@github.com:Faizal-Malek/ui-ux-agent-skills.git ~/ui-ux-agent-skills
 mkdir -p .agents/skills
-for s in ux-improve ux-design ux-audit ux-review restyle; do
+for s in ux-improve ux-design ux-audit ux-review restyle color-scheme; do
   ln -sfn ~/ui-ux-agent-skills/skills/$s .agents/skills/$s
 done
 ```
@@ -92,7 +97,7 @@ done
 ```bash
 git clone git@github.com:Faizal-Malek/ui-ux-agent-skills.git ~/ui-ux-agent-skills
 mkdir -p ~/.agents/skills ~/.cursor/skills
-for s in ux-improve ux-design ux-audit ux-review restyle; do
+for s in ux-improve ux-design ux-audit ux-review restyle color-scheme; do
   ln -sfn ~/ui-ux-agent-skills/skills/$s ~/.agents/skills/$s
   ln -sfn ~/ui-ux-agent-skills/skills/$s ~/.cursor/skills/$s
 done
@@ -102,7 +107,7 @@ done
 
 ```bash
 mkdir -p ~/.gemini/config/skills ~/.gemini/antigravity/skills
-for s in ux-improve ux-design ux-audit ux-review restyle; do
+for s in ux-improve ux-design ux-audit ux-review restyle color-scheme; do
   ln -sfn ~/ui-ux-agent-skills/skills/$s ~/.gemini/config/skills/$s
   ln -sfn ~/ui-ux-agent-skills/skills/$s ~/.gemini/antigravity/skills/$s
 done
